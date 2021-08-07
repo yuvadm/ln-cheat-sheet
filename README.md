@@ -7,14 +7,9 @@ Everything you need to work with the Lightning Network in a dense and concise fo
 - **Local balance**: outgoing liquidity
 - **Remote balance**: incoming liquidity
 
-Payments are attempted in two phases:
+A new channel opened with a peer will have 100% local balance. Initially, you can only **send** funds.
 
-- Pathfinding: traversing the channel graph and finding a path to the destination node
-- Routing: attempting to actually send funds on a given path.
-
-Public graph information includes channel capacity and fees, and is known in **path finding** phase.
-
-Private graph information includes the current liquidity balance, and can only be discovered if a payment succeeds or fails on a **routing** attempt.
+A new channel that a peer has initiated with you will have 100% remote balance. Initially, you can only **receive** funds.
 
 ### Circular Rebalance
 
@@ -22,9 +17,24 @@ Excess **local** balance on one channel is used to pay _yourself_ with funds com
 
 At least two peers (i.e. two separate channels) are needed for a rebalance to occur.
 
+### Payments
+
+Payments are attempted in two phases.
+
+- **Pathfinding**: traversing the channel graph and finding a path to the destination node
+- **Routing**: attempting to actually send funds on a given path.
+
+Public graph information includes channel capacity and fees, and is known in **path finding** phase. Potential paths can be resolved locally without interaction with the network.
+
+Private graph information includes the current liquidity balance, and can only be discovered if a payment succeeds or fails on a **routing** attempt.
+
 ### Fees
 
 Fees are always charged on the **outgoing** path, when a payment is **forwarded**.
+
+If a channel is draining your liquidity, raise the fees.
+
+If a channel is pushing lots of liquidity, you cannot raise incoming fees, because that's not a thing. You have to raise your fees on _all_ your other channels (or at least on the channels that are received these payments/forwards.)
 
 ## Numbers
 
