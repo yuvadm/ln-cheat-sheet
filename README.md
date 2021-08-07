@@ -16,6 +16,12 @@ Public graph information includes channel capacity and fees, and is known in **p
 
 Private graph information includes the current liquidity balance, and can only be discovered if a payment succeeds or fails on a **routing** attempt.
 
+### Circular Rebalance
+
+Excess **local** balance on one channel is used to pay _yourself_ with funds coming in on another channel with excess **remote** balance.
+
+At least two peers (i.e. two separate channels) are needed for a rebalance to occur.
+
 ### Fees
 
 Fees are always charged on the **outgoing** path, when a payment is **forwarded**.
