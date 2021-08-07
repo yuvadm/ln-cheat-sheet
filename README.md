@@ -4,8 +4,17 @@ Everything you need to work with the Lightning Network in a dense and concise fo
 
 ## Channels
 
-- **Local balance** - outgoing liquidity
-- **Remote balance** - incoming liquidity
+- **Local balance**: outgoing liquidity
+- **Remote balance**: incoming liquidity
+
+Payments are attempted in two phases:
+
+- Pathfinding: traversing the channel graph and finding a path to the destination node
+- Routing: attempting to actually send funds on a given path.
+
+Public graph information includes channel capacity and fees, and is known in **path finding** phase.
+
+Private graph information includes the current liquidity balance, and can only be discovered if a payment succeeds or fails on a **routing** attempt.
 
 ### Fees
 
