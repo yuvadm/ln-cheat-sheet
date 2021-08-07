@@ -19,13 +19,6 @@ Fees are always charged on the **outgoing** path, when a payment is **forwarded*
 1 sat (satoshi)          = 1 / 100,000,000 = 0.00000001 BTC
 1 ppm (part per million) = 1 /   1,000,000
 1 bps (basis point)      = 1 /      10,000
-
-- 1 **sat** (satoshi) = 1 / 100,000,000 = 0.00000001 BTC
-- 1 **ppm** (part per million) = 1 / 1,000,000
-- 1 **bps** (basis point) = 1 / 10,000
-- 1000 ppm = 1 bps
-- 1000 ppm = 0.1%
-- 100 bps = 1%
 ```
 
 ### ppm to %
@@ -35,6 +28,12 @@ Fees are always charged on the **outgoing** path, when a payment is **forwarded*
 10   ppm =  0.001%
 100  ppm =   0.01%
 1000 ppm =    0.1%
+```
+
+### ppm to bps
+
+```
+1000 ppm = 1 bps
 ```
 
 ### bps to %
